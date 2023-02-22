@@ -6,6 +6,8 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
+const createInstitution = require("./api/Institution/create-Institution");
+
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
 
@@ -35,3 +37,6 @@ const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
+//Create Institution
+app.post("/api/institutions", createInstitution);
