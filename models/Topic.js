@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
-const TitleSchema = new mongoose.Schema({
-  name: {
+const TopicSchema = new mongoose.Schema({
+  title: {
     type: String,
     required: true,
-    unique: true,
   },
   subject: {
     type: mongoose.Schema.Types.ObjectId,
@@ -18,4 +17,4 @@ const TitleSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Title", TitleSchema);
+module.exports = mongoose.model("Topic", TopicSchema);

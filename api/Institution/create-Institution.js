@@ -4,9 +4,13 @@ const bcrypt = require("bcrypt");
 
 async function createInstitution(req, res) {
   try {
-    const existingInst = await Institution.findOne({ email: req.body.email });
+    const existingInst = await Institution.findOne({
+      $or: [{ name: req.body.name }, { email: req.body.email }],
+    });
     if (existingInst) {
-      res.status(400).json({ message: "Institution already exists" });
+      res
+        .status(400)
+        .json({ message: "Institution name or email already exists" });
     } else {
       const salt = await bcrypt.genSalt();
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -19,9 +23,7 @@ async function createInstitution(req, res) {
         password: hashedPassword,
       });
       const newInst = await institution.save();
-      res
-        .status(201)
-        .json({ institution: newInst, institutionId: newInst._id });
+      res.status(201).json({ institutionId: newInst._id });
     }
   } catch (err) {
     res.status(400).json({ message: err.message });

@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 
-const SubtitleSchema = new mongoose.Schema({
-  name: {
+const SubtopicSchema = new mongoose.Schema({
+  title: {
     type: String,
     required: true,
-    unique: true,
   },
-  title: {
+  topic: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "Title",
+    ref: "Topic",
   },
   description: {
     type: String,
@@ -21,4 +20,4 @@ const SubtitleSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Subtitle", SubtitleSchema);
+module.exports = mongoose.model("Subtopic", SubtopicSchema);

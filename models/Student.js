@@ -33,8 +33,6 @@ const studentSchema = new mongoose.Schema({
   },
   dp: {
     type: String,
-    required: true,
-    unique: true,
   },
   password: {
     type: String,

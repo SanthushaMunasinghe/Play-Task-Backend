@@ -4,7 +4,6 @@ const termSchema = new mongoose.Schema({
   number: {
     type: String,
     required: true,
-    unique: true,
   },
   grade: {
     type: mongoose.Schema.Types.ObjectId,

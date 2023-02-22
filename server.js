@@ -6,7 +6,35 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
+//Institution
 const createInstitution = require("./api/Institution/create-Institution");
+
+//Grade
+const createGrade = require("./api/Grade/create-grade");
+
+//Term
+const createTerm = require("./api/Term/create-term");
+
+//Classroom
+const createClassroom = require("./api/Classroom/create-classroom");
+
+//Subject
+const createSubject = require("./api/Subject/create-subject");
+
+//Topic
+const createTopic = require("./api/Topic/create-topic");
+
+//Subtopic
+const createSubTopic = require("./api/Subtopic/create-subtopic");
+
+//Admin
+const createAdmin = require("./api/Admin/create-admin");
+
+//Teacher
+const createTeacher = require("./api/Teacher/create-teacher");
+
+//Student
+const createStudent = require("./api/Student/create-student");
 
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
@@ -38,5 +66,42 @@ const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-//Create Institution
+//Institution
+//Create
 app.post("/api/institutions", createInstitution);
+
+//Grade
+//Create
+app.post("/api/grades", createGrade);
+
+//Term
+//Create
+app.post("/api/terms", createTerm);
+
+//Classroom
+//Create
+app.post("/api/classrooms", createClassroom);
+
+//Subject
+//Create
+app.post("/api/subjects", createSubject);
+
+//Topic
+//Create
+app.post("/api/topics", createTopic);
+
+//Subtopic
+//Create
+app.post("/api/subtopics", createSubTopic);
+
+//Admin
+//Create
+app.post("/api/admins", createAdmin);
+
+//Teacher
+//Create
+app.post("/api/teachers", createTeacher);
+
+//Student
+//Create
+app.post("/api/students", createStudent);
