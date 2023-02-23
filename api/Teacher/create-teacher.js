@@ -5,15 +5,21 @@ const bcrypt = require("bcrypt");
 async function createTeacher(req, res) {
   try {
     const existingTeacher = await Teacher.findOne({
-      $or: [
-        { name: req.body.name },
-        { email: req.body.email },
-        { contactno: req.body.contactno },
+      $and: [
+        {
+          $or: [
+            { name: req.body.name },
+            { email: req.body.email },
+            { contactno: req.body.contactno },
+          ],
+        },
+        { institution: req.body.institution },
       ],
     });
     if (existingTeacher) {
       res.status(400).json({
-        message: "Teacher name, email or contact number already exists",
+        message:
+          "Teacher name, email or contact number already exists in this institution",
       });
     } else {
       const salt = await bcrypt.genSalt();

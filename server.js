@@ -32,6 +32,7 @@ const createAdmin = require("./api/Admin/create-admin");
 
 //Teacher
 const createTeacher = require("./api/Teacher/create-teacher");
+const loginTeacher = require("./api/Teacher/login-teacher");
 
 //Student
 const createStudent = require("./api/Student/create-student");
@@ -101,6 +102,7 @@ app.post("/api/admins", createAdmin);
 //Teacher
 //Create
 app.post("/api/teachers", createTeacher);
+app.post("/api/teacherlogin", loginTeacher);
 
 //Student
 //Create
