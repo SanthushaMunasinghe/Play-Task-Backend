@@ -24,11 +24,11 @@ async function teacherLogin(req, res) {
         } else {
           res.status(200).json({
             userid: teacher._id,
-            // name: teacher.name,
-            // institution: teacher.institution,
-            // subjects: teacher.subjects,
-            // classrooms: teacher.classrooms,
-            // dp: teacher.dp,
+            name: teacher.name,
+            institution: teacher.institution,
+            subjects: teacher.subjects,
+            classrooms: teacher.classrooms,
+            dp: teacher.dp,
           });
         }
       }
