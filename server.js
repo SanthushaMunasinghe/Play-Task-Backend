@@ -30,6 +30,7 @@ const createSubTopic = require("./api/Subtopic/create-subtopic");
 
 //Admin
 const createAdmin = require("./api/Admin/create-admin");
+const loginAdmin = require("./api/Admin/login-admin");
 
 //Teacher
 const createTeacher = require("./api/Teacher/create-teacher");
@@ -100,6 +101,7 @@ app.post("/api/subtopics", createSubTopic);
 //Admin
 //Create
 app.post("/api/admins", createAdmin);
+app.post("/api/adminlogin", loginAdmin);
 
 //Teacher
 //Create
