@@ -5,18 +5,22 @@ const bcrypt = require("bcrypt");
 async function createAdmin(req, res) {
   try {
     const existingAdmin = await Admin.findOne({
-      $or: [
-        { name: req.body.name },
-        { email: req.body.email },
-        { contactno: req.body.contactno },
+      $and: [
+        {
+          $or: [
+            { name: req.body.name },
+            { email: req.body.email },
+            { contactno: req.body.contactno },
+          ],
+        },
+        { institution: req.body.institution },
       ],
     });
     if (existingAdmin) {
-      res
-        .status(400)
-        .json({
-          message: "Admin name, email or contact number already exists",
-        });
+      res.status(400).json({
+        message:
+          "Admin Name, Email Or Contact Number Already Exists In This Institution",
+      });
     } else {
       const salt = await bcrypt.genSalt();
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -24,6 +28,7 @@ async function createAdmin(req, res) {
         name: req.body.name,
         email: req.body.email,
         contactno: req.body.contactno,
+        authorization: req.body.authorization,
         home: req.body.home,
         institution: req.body.institution,
         password: hashedPassword,

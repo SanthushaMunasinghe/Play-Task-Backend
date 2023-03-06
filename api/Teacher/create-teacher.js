@@ -19,7 +19,7 @@ async function createTeacher(req, res) {
     if (existingTeacher) {
       res.status(400).json({
         message:
-          "Teacher name, email or contact number already exists in this institution",
+          "Teacher Name, Email Or Contact Number Already Exists In This Institution",
       });
     } else {
       const salt = await bcrypt.genSalt();

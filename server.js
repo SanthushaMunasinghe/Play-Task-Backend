@@ -8,6 +8,7 @@ app.use(express.json());
 
 //Institution
 const createInstitution = require("./api/Institution/create-Institution");
+const loginInstitution = require("./api/Institution/login-institution");
 
 //Grade
 const createGrade = require("./api/Grade/create-grade");
@@ -70,6 +71,7 @@ const server = app.listen(port, () => {
 //Institution
 //Create
 app.post("/api/institutions", createInstitution);
+app.post("/api/institutionlogin", loginInstitution);
 
 //Grade
 //Create
