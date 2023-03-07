@@ -9,6 +9,7 @@ app.use(express.json());
 //Institution
 const createInstitution = require("./api/Institution/create-Institution");
 const loginInstitution = require("./api/Institution/login-institution");
+const getInstitution = require("./api/Institution/get-institution");
 
 //Grade
 const createGrade = require("./api/Grade/create-grade");
@@ -31,6 +32,7 @@ const createSubTopic = require("./api/Subtopic/create-subtopic");
 //Admin
 const createAdmin = require("./api/Admin/create-admin");
 const loginAdmin = require("./api/Admin/login-admin");
+const getAdmin = require("./api/Admin/get-admin");
 
 //Teacher
 const createTeacher = require("./api/Teacher/create-teacher");
@@ -72,7 +74,10 @@ const server = app.listen(port, () => {
 //Institution
 //Create
 app.post("/api/institutions", createInstitution);
+//Login
 app.post("/api/institutionlogin", loginInstitution);
+//Get
+app.get("/api/institution/:id/:type", getInstitution);
 
 //Grade
 //Create
@@ -101,11 +106,15 @@ app.post("/api/subtopics", createSubTopic);
 //Admin
 //Create
 app.post("/api/admins", createAdmin);
+//Login
 app.post("/api/adminlogin", loginAdmin);
+//Get
+app.get("/api/admin/:id/:type", getAdmin);
 
 //Teacher
 //Create
 app.post("/api/teachers", createTeacher);
+//Login
 app.post("/api/teacherlogin", loginTeacher);
 
 //Student
