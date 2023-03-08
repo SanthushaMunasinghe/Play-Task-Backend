@@ -10,6 +10,7 @@ async function getAdmin(req, res) {
         res.status(200).json({
           id: admin._id,
           name: admin.name,
+          authorization: admin.authorization,
         });
       } else {
         res.status(200).json({

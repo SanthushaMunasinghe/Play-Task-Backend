@@ -13,9 +13,13 @@ const getInstitution = require("./api/Institution/get-institution");
 
 //Grade
 const createGrade = require("./api/Grade/create-grade");
+const getGrade = require("./api/Grade/get-grades");
+const deleteGrade = require("./api/Grade/delete-grade");
 
 //Term
 const createTerm = require("./api/Term/create-term");
+const getTerm = require("./api/Term/get-term");
+const deleteTerm = require("./api/Term/delete.term");
 
 //Classroom
 const createClassroom = require("./api/Classroom/create-classroom");
@@ -82,10 +86,18 @@ app.get("/api/institution/:id/:type", getInstitution);
 //Grade
 //Create
 app.post("/api/grades", createGrade);
+//Get
+app.get("/api/getgrades/:institution", getGrade);
+//Delete
+app.delete("/api/deleteGrade/:id", deleteGrade);
 
 //Term
 //Create
 app.post("/api/terms", createTerm);
+//Get
+app.get("/api/getterms/:grade", getTerm);
+//Delete
+app.delete("/api/deleteTerm/:id", deleteTerm);
 
 //Classroom
 //Create

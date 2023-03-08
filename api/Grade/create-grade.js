@@ -2,9 +2,14 @@ const Grade = require("../../models/Grade");
 
 async function createGrade(req, res) {
   try {
-    const existingGrade = await Grade.findOne({ number: req.body.number });
+    const existingGrade = await Grade.findOne({
+      $and: [
+        { number: req.body.number },
+        { institution: req.body.institution },
+      ],
+    });
     if (existingGrade) {
-      res.status(400).json({ message: "Grade already exists" });
+      res.status(400).json({ message: "Grade Already Exists" });
     } else {
       const grade = new Grade({
         number: req.body.number,

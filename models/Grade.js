@@ -4,7 +4,6 @@ const gradeSchema = new mongoose.Schema({
   number: {
     type: String,
     required: true,
-    unique: true,
   },
   institution: {
     type: mongoose.Schema.Types.ObjectId,

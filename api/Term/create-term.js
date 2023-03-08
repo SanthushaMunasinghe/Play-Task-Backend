@@ -6,7 +6,7 @@ async function createTerm(req, res) {
       $and: [{ number: req.body.number }, { grade: req.body.grade }],
     });
     if (existingTerm) {
-      res.status(400).json({ message: "Term already exists" });
+      res.status(400).json({ message: "Term Already Exists" });
     } else {
       const term = new Term({
         number: req.body.number,
