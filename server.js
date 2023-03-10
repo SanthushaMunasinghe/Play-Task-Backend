@@ -18,7 +18,7 @@ const deleteGrade = require("./api/Grade/delete-grade");
 
 //Term
 const createTerm = require("./api/Term/create-term");
-const getTerm = require("./api/Term/get-term");
+const getTerm = require("./api/Term/get-terms");
 const deleteTerm = require("./api/Term/delete.term");
 
 //Classroom
@@ -28,12 +28,16 @@ const getClassrooms = require("./api/Classroom/get-classroom");
 //Subject
 const createSubject = require("./api/Subject/create-subject");
 const getSubjects = require("./api/Subject/get-subjects");
+const getSubject = require("./api/Subject/get-subject");
 
 //Topic
 const createTopic = require("./api/Topic/create-topic");
+const getTopics = require("./api/Topic/get-topics");
+const getTopic = require("./api/Topic/get-topic");
 
 //Subtopic
 const createSubTopic = require("./api/Subtopic/create-subtopic");
+const getSubtopics = require("./api/Subtopic/get-subtopics");
 
 //Admin
 const createAdmin = require("./api/Admin/create-admin");
@@ -112,14 +116,20 @@ app.get("/api/getclassrooms/:grade", getClassrooms);
 app.post("/api/subjects", createSubject);
 //Get
 app.get("/api/getsubjects/:grade", getSubjects);
+app.get("/api/getsubject/:subjectid", getSubject);
 
 //Topic
 //Create
 app.post("/api/topics", createTopic);
+//Get
+app.get("/api/gettopics/:subject/:term", getTopics);
+app.get("/api/gettopic/:topicid", getTopic);
 
 //Subtopic
 //Create
 app.post("/api/subtopics", createSubTopic);
+//Get
+app.get("/api/getsubtopics/:topic", getSubtopics);
 
 //Admin
 //Create
