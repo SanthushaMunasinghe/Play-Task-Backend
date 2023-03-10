@@ -23,9 +23,11 @@ const deleteTerm = require("./api/Term/delete.term");
 
 //Classroom
 const createClassroom = require("./api/Classroom/create-classroom");
+const getClassrooms = require("./api/Classroom/get-classroom");
 
 //Subject
 const createSubject = require("./api/Subject/create-subject");
+const getSubjects = require("./api/Subject/get-subjects");
 
 //Topic
 const createTopic = require("./api/Topic/create-topic");
@@ -102,10 +104,14 @@ app.delete("/api/deleteTerm/:id", deleteTerm);
 //Classroom
 //Create
 app.post("/api/classrooms", createClassroom);
+//Get
+app.get("/api/getclassrooms/:grade", getClassrooms);
 
 //Subject
 //Create
 app.post("/api/subjects", createSubject);
+//Get
+app.get("/api/getsubjects/:grade", getSubjects);
 
 //Topic
 //Create

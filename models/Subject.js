@@ -4,7 +4,6 @@ const subjectSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   grade: {
     type: mongoose.Schema.Types.ObjectId,
