@@ -44,6 +44,8 @@ const updateSubtopic = require("./api/Subtopic/update-subtopic");
 const createAdmin = require("./api/Admin/create-admin");
 const loginAdmin = require("./api/Admin/login-admin");
 const getAdmin = require("./api/Admin/get-admin");
+const getAdmins = require("./api/Admin/get-admins");
+const updateAdmin = require("./api/Admin/update-admin");
 
 //Teacher
 const createTeacher = require("./api/Teacher/create-teacher");
@@ -132,7 +134,7 @@ app.post("/api/subtopics", createSubTopic);
 //Get
 app.get("/api/getsubtopics/:topic", getSubtopics);
 //Update
-app.put("/api/updatesubtopic/:id", updateSubtopic);
+app.put("/api/updatesubtopic/:topic/:id", updateSubtopic);
 
 //Admin
 //Create
@@ -141,6 +143,9 @@ app.post("/api/admins", createAdmin);
 app.post("/api/adminlogin", loginAdmin);
 //Get
 app.get("/api/admin/:id/:type", getAdmin);
+app.get("/api/getadmins/:institution", getAdmins);
+//Update
+app.put("/api/updateadmin/:institution/:id", updateAdmin);
 
 //Teacher
 //Create
