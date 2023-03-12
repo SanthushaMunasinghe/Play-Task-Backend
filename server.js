@@ -16,6 +16,7 @@ const updateInstitution = require("./api/Institution/update-institution");
 const createGrade = require("./api/Grade/create-grade");
 const getGrades = require("./api/Grade/get-grades");
 const getGrade = require("./api/Grade/get-grade");
+const getGradeById = require("./api/Grade/get-grade-byid");
 const deleteGrade = require("./api/Grade/delete-grade");
 
 //Term
@@ -27,6 +28,7 @@ const deleteTerm = require("./api/Term/delete.term");
 const createClassroom = require("./api/Classroom/create-classroom");
 const getClassrooms = require("./api/Classroom/get-classrooms");
 const getClassroom = require("./api/Classroom/get-classroom");
+const getClassroomById = require("./api/Classroom/get-classroom-byid");
 
 //Subject
 const createSubject = require("./api/Subject/create-subject");
@@ -59,6 +61,7 @@ const updateTeacher = require("./api/Teacher/update-teacher");
 
 //Student
 const createStudent = require("./api/Student/create-student");
+const getStudents = require("./api/Student/get-students");
 
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
@@ -106,6 +109,7 @@ app.post("/api/grades", createGrade);
 //Get
 app.get("/api/getgrades/:institution", getGrades);
 app.get("/api/getgrade/:institution/:number", getGrade);
+app.get("/api/getgradebyid/:id", getGradeById);
 //Delete
 app.delete("/api/deleteGrade/:id", deleteGrade);
 
@@ -123,6 +127,7 @@ app.post("/api/classrooms", createClassroom);
 //Get
 app.get("/api/getclassrooms/:grade", getClassrooms);
 app.get("/api/getclassroom/:grade/:name", getClassroom);
+app.get("/api/getclassroombyid/:id", getClassroomById);
 
 //Subject
 //Create
@@ -171,3 +176,5 @@ app.put("/api/updateteacher/:institution/:id", updateTeacher);
 //Student
 //Create
 app.post("/api/students", createStudent);
+//Get
+app.get("/api/getstudents/:institution", getStudents);

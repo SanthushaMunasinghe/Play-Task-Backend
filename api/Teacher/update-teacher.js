@@ -27,6 +27,8 @@ async function updateTeacher(req, res) {
         ? req.body.contactno
         : teacher.contactno;
       teacher.home = req.body.home ? req.body.home : teacher.home;
+      teacher.subjects = req.body.subjects;
+      teacher.classrooms = req.body.classrooms;
       await teacher.save();
       res.status(200).json({ message: "Teacher updated successfully" });
     }

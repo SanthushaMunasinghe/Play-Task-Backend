@@ -1,13 +1,8 @@
 const Grade = require("../../models/Grade");
 
-async function getGrade(req, res) {
+async function getGradeById(req, res) {
   try {
-    const grade = await Grade.findOne({
-      $and: [
-        { number: req.params.number },
-        { institution: req.params.institution },
-      ],
-    });
+    const grade = await Grade.findOne({ _id: req.params.id });
     if (!grade) {
       res.status(404).json({ message: "Grade Not Found" });
     } else {
@@ -18,4 +13,4 @@ async function getGrade(req, res) {
   }
 }
 
-module.exports = getGrade;
+module.exports = getGradeById;
