@@ -1,16 +1,18 @@
 const Classroom = require("../../models/Classroom");
 
-async function getClassrooms(req, res) {
+async function getClassroom(req, res) {
   try {
-    const classroom = await Classroom.find({ grade: req.params.grade });
+    const classroom = await Classroom.findOne({
+      $and: [{ grade: req.params.grade }, { name: req.params.name }],
+    });
     if (!classroom) {
-      res.status(404).json({ message: "Classrooms Not Found" });
+      res.status(404).json({ message: "Classroom Not Found" });
     } else {
-      res.status(200).json(classroom);
+      res.status(200).json({ _id: classroom._id, name: classroom.name });
     }
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 }
 
-module.exports = getClassrooms;
+module.exports = getClassroom;

@@ -10,10 +10,12 @@ app.use(express.json());
 const createInstitution = require("./api/Institution/create-Institution");
 const loginInstitution = require("./api/Institution/login-institution");
 const getInstitution = require("./api/Institution/get-institution");
+const updateInstitution = require("./api/Institution/update-institution");
 
 //Grade
 const createGrade = require("./api/Grade/create-grade");
-const getGrade = require("./api/Grade/get-grades");
+const getGrades = require("./api/Grade/get-grades");
+const getGrade = require("./api/Grade/get-grade");
 const deleteGrade = require("./api/Grade/delete-grade");
 
 //Term
@@ -23,12 +25,14 @@ const deleteTerm = require("./api/Term/delete.term");
 
 //Classroom
 const createClassroom = require("./api/Classroom/create-classroom");
-const getClassrooms = require("./api/Classroom/get-classroom");
+const getClassrooms = require("./api/Classroom/get-classrooms");
+const getClassroom = require("./api/Classroom/get-classroom");
 
 //Subject
 const createSubject = require("./api/Subject/create-subject");
 const getSubjects = require("./api/Subject/get-subjects");
 const getSubject = require("./api/Subject/get-subject");
+const getSubjectName = require("./api/Subject/get-subject-name");
 
 //Topic
 const createTopic = require("./api/Topic/create-topic");
@@ -50,6 +54,8 @@ const updateAdmin = require("./api/Admin/update-admin");
 //Teacher
 const createTeacher = require("./api/Teacher/create-teacher");
 const loginTeacher = require("./api/Teacher/login-teacher");
+const getTeachers = require("./api/Teacher/get-teachers");
+const updateTeacher = require("./api/Teacher/update-teacher");
 
 //Student
 const createStudent = require("./api/Student/create-student");
@@ -91,12 +97,15 @@ app.post("/api/institutions", createInstitution);
 app.post("/api/institutionlogin", loginInstitution);
 //Get
 app.get("/api/institution/:id/:type", getInstitution);
+//Update
+app.put("/api/updateinstitution/:id", updateInstitution);
 
 //Grade
 //Create
 app.post("/api/grades", createGrade);
 //Get
-app.get("/api/getgrades/:institution", getGrade);
+app.get("/api/getgrades/:institution", getGrades);
+app.get("/api/getgrade/:institution/:number", getGrade);
 //Delete
 app.delete("/api/deleteGrade/:id", deleteGrade);
 
@@ -113,6 +122,7 @@ app.delete("/api/deleteTerm/:id", deleteTerm);
 app.post("/api/classrooms", createClassroom);
 //Get
 app.get("/api/getclassrooms/:grade", getClassrooms);
+app.get("/api/getclassroom/:grade/:name", getClassroom);
 
 //Subject
 //Create
@@ -120,6 +130,7 @@ app.post("/api/subjects", createSubject);
 //Get
 app.get("/api/getsubjects/:grade", getSubjects);
 app.get("/api/getsubject/:subjectid", getSubject);
+app.get("/api/getsubjectname/:grade/:name", getSubjectName);
 
 //Topic
 //Create
@@ -152,6 +163,10 @@ app.put("/api/updateadmin/:institution/:id", updateAdmin);
 app.post("/api/teachers", createTeacher);
 //Login
 app.post("/api/teacherlogin", loginTeacher);
+//Get
+app.get("/api/getteachers/:institution", getTeachers);
+//Update
+app.put("/api/updateteacher/:institution/:id", updateTeacher);
 
 //Student
 //Create
