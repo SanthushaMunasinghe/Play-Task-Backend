@@ -62,6 +62,7 @@ const updateTeacher = require("./api/Teacher/update-teacher");
 //Student
 const createStudent = require("./api/Student/create-student");
 const getStudents = require("./api/Student/get-students");
+const getClassroomStudents = require("./api/Student/get-classroom-students");
 const updateStudent = require("./api/Student/update-student");
 
 //DB Connect
@@ -179,5 +180,6 @@ app.put("/api/updateteacher/:institution/:id", updateTeacher);
 app.post("/api/students", createStudent);
 //Get
 app.get("/api/getstudents/:institution", getStudents);
+app.get("/api/getsclassroomtudents/:classroom", getClassroomStudents);
 //Update
 app.put("/api/updatestudent/:institution/:id", updateStudent);
