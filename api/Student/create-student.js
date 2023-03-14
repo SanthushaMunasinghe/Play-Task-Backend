@@ -7,10 +7,15 @@ const bcrypt = require("bcrypt");
 async function createStudent(req, res) {
   try {
     const existingStudent = await Student.findOne({
-      $or: [
-        { name: req.body.name },
-        { email: req.body.email },
-        { contactno: req.body.contactno },
+      $and: [
+        {
+          $or: [
+            { name: req.body.name },
+            { email: req.body.email },
+            { contactno: req.body.contactno },
+          ],
+        },
+        { institution: req.body.institution },
       ],
     });
     if (existingStudent) {
