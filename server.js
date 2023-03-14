@@ -40,6 +40,7 @@ const getSubjectName = require("./api/Subject/get-subject-name");
 const createTopic = require("./api/Topic/create-topic");
 const getTopics = require("./api/Topic/get-topics");
 const getTopic = require("./api/Topic/get-topic");
+const getSubjectTopics = require("./api/Topic/get-subject-topics");
 
 //Subtopic
 const createSubTopic = require("./api/Subtopic/create-subtopic");
@@ -145,6 +146,7 @@ app.post("/api/topics", createTopic);
 //Get
 app.get("/api/gettopics/:subject/:term", getTopics);
 app.get("/api/gettopic/:topicid", getTopic);
+app.get("/api/getsubjecttopics/:subject", getSubjectTopics);
 
 //Subtopic
 //Create
