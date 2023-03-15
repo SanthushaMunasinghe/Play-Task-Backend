@@ -181,7 +181,7 @@ app.put("/api/updateteacher/:institution/:id", updateTeacher);
 //Create
 app.post("/api/students", createStudent);
 //Get
-app.get("/api/getstudents/:institution", getStudents);
+app.get("/api/getstudents/:classroom", getStudents);
 app.get("/api/getsclassroomtudents/:classroom", getClassroomStudents);
 //Update
 app.put("/api/updatestudent/:institution/:id", updateStudent);
