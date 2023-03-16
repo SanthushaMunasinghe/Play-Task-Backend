@@ -42,6 +42,7 @@ async function createStudent(req, res) {
             email: req.body.email,
             contactno: req.body.contactno,
             home: req.body.home,
+            institution: req.body.institution,
             subjects: req.body.subjects,
             classroom: existingClassroom._id,
             dp: req.body.dp,
