@@ -17,7 +17,6 @@ const adminSchema = new mongoose.Schema({
   },
   gamedata: {
     type: String,
-    required: true,
   },
 });
 

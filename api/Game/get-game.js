@@ -2,7 +2,12 @@ const Game = require("../../models/Game");
 
 async function getGame(req, res) {
   try {
-    const game = await Game.findOne({ _id: req.params.id });
+    const game = await Game.findOne({
+      $and: [
+        { teacher: req.params.teacher },
+        { subtopic: req.params.subtopic },
+      ],
+    });
     if (!game) {
       res.status(404).json({ message: "Game Not Found" });
     } else {
