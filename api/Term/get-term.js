@@ -1,10 +1,10 @@
 const Term = require("../../models/Term");
 
-async function getTerms(req, res) {
+async function getTerm(req, res) {
   try {
-    const term = await Term.find({ grade: req.params.grade });
+    const term = await Term.findOne({ _id: req.params.id });
     if (!term) {
-      res.status(404).json({ message: "Terms Not Found" });
+      res.status(404).json({ message: "Term Not Found" });
     } else {
       res.status(200).json(term);
     }
@@ -13,4 +13,4 @@ async function getTerms(req, res) {
   }
 }
 
-module.exports = getTerms;
+module.exports = getTerm;

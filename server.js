@@ -21,7 +21,8 @@ const deleteGrade = require("./api/Grade/delete-grade");
 
 //Term
 const createTerm = require("./api/Term/create-term");
-const getTerm = require("./api/Term/get-terms");
+const getTerms = require("./api/Term/get-terms");
+const getTerm = require("./api/Term/get-term");
 const deleteTerm = require("./api/Term/delete.term");
 
 //Classroom
@@ -65,6 +66,10 @@ const createStudent = require("./api/Student/create-student");
 const getStudents = require("./api/Student/get-students");
 const getClassroomStudents = require("./api/Student/get-classroom-students");
 const updateStudent = require("./api/Student/update-student");
+
+//Game
+const createGame = require("./api/Game/create-game");
+const updateGame = require("./api/Game/update-game");
 
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
@@ -120,7 +125,8 @@ app.delete("/api/deleteGrade/:id", deleteGrade);
 //Create
 app.post("/api/terms", createTerm);
 //Get
-app.get("/api/getterms/:grade", getTerm);
+app.get("/api/getterms/:grade", getTerms);
+app.get("/api/getterm/:id", getTerm);
 //Delete
 app.delete("/api/deleteTerm/:id", deleteTerm);
 
@@ -185,3 +191,7 @@ app.get("/api/getstudents/:institutionid", getStudents);
 app.get("/api/getsclassroomtudents/:classroom", getClassroomStudents);
 //Update
 app.put("/api/updatestudent/:institution/:id", updateStudent);
+
+//Game
+app.post("/api/game", createGame);
+app.put("/api/updategame", updateGame);
