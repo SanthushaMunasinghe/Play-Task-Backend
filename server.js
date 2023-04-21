@@ -197,5 +197,5 @@ app.put("/api/updatestudent/:institution/:id", updateStudent);
 //Game
 app.post("/api/game", createGame);
 app.get("/api/getgame/:teacher/:subtopic", getGame);
-app.put("/api/updategame", updateGame);
+app.put("/api/updategame/:id", updateGame);
 app.put("/api/submitgame", submitGame);

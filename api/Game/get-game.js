@@ -13,6 +13,7 @@ async function getGame(req, res) {
     } else {
       res.status(200).json({
         id: game._id,
+        subtopic: game.subtopic,
         gamedata: game.gamedata,
       });
     }

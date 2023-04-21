@@ -6,7 +6,7 @@ async function updateGame(req, res) {
     if (game) {
       game.gamedata = req.body.gamedata;
       await game.save();
-      res.status(200).json({ message: "Game updated successfully" });
+      res.status(200).json({ success: "Game updated successfully" });
     } else {
       res.status(404).json({ message: "Game not found" });
     }
