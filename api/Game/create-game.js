@@ -11,7 +11,7 @@ async function createGame(req, res) {
     const game = new Game({
       teacher: req.body.teacher,
       subtopic: req.body.subtopic,
-      state: !Boolean(req.body.state),
+      state: false,
       gamedata: req.body.gamedata,
     });
     const newGame = await game.save();
