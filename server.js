@@ -63,8 +63,10 @@ const updateTeacher = require("./api/Teacher/update-teacher");
 
 //Student
 const createStudent = require("./api/Student/create-student");
+const loginStudent = require("./api/Student/login-student");
 const getStudents = require("./api/Student/get-students");
 const getClassroomStudents = require("./api/Student/get-classroom-students");
+const getStudent = require("./api/Student/get-student");
 const updateStudent = require("./api/Student/update-student");
 
 //Game
@@ -188,9 +190,12 @@ app.put("/api/updateteacher/:institution/:id", updateTeacher);
 //Student
 //Create
 app.post("/api/students", createStudent);
+//Login
+app.post("/api/studentlogin", loginStudent);
 //Get
 app.get("/api/getstudents/:institutionid", getStudents);
 app.get("/api/getsclassroomtudents/:classroom", getClassroomStudents);
+app.get("/api/getstudent/:id", getStudent);
 //Update
 app.put("/api/updatestudent/:institution/:id", updateStudent);
 
