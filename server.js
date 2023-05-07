@@ -203,4 +203,4 @@ app.put("/api/updatestudent/:institution/:id", updateStudent);
 app.post("/api/game", createGame);
 app.get("/api/getgame/:teacher/:subtopic", getGame);
 app.put("/api/updategame/:id", updateGame);
-app.put("/api/submitgame", submitGame);
+app.put("/api/submitgame/:id", submitGame);

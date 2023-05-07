@@ -4,7 +4,7 @@ async function submitGame(req, res) {
   try {
     const game = await Game.findById(req.params.id);
     if (game) {
-      game.status = req.body.status;
+      game.state = true;
       await game.save();
       res.status(200).json({ message: "Game submitted successfully" });
     } else {
