@@ -76,6 +76,9 @@ const updateGame = require("./api/Game/update-game");
 const submitGame = require("./api/Game/submit-game");
 const getGameStudent = require("./api/Game/get-game-student");
 
+//Attempt
+const createAttempt = require("./api/Attempt/create-attempt");
+
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
 
@@ -206,3 +209,6 @@ app.get("/api/getgame/:teacher/:subtopic", getGame);
 app.get("/api/getgamestudent/:subtopic", getGameStudent);
 app.put("/api/updategame/:id", updateGame);
 app.put("/api/submitgame/:id", submitGame);
+
+//Attempt
+app.post("/api/createattempt", createAttempt);
