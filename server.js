@@ -78,6 +78,7 @@ const getGameStudent = require("./api/Game/get-game-student");
 
 //Attempt
 const createAttempt = require("./api/Attempt/create-attempt");
+const getAttempt = require("./api/Attempt/get-attempts");
 
 //DB Connect
 const dbLink = process.env.DATABASE_URL;
@@ -212,3 +213,4 @@ app.put("/api/submitgame/:id", submitGame);
 
 //Attempt
 app.post("/api/createattempt", createAttempt);
+app.get("/api/getattempts/:student/:subtopic", getAttempt);
