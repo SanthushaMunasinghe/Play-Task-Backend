@@ -6,7 +6,7 @@ async function submitGame(req, res) {
     if (game) {
       game.state = true;
       await game.save();
-      res.status(200).json({ message: "Game submitted successfully" });
+      res.status(200).json({ success: "Game submitted successfully" });
     } else {
       res.status(404).json({ message: "Game not found" });
     }
