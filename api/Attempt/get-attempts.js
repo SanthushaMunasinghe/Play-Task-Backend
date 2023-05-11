@@ -10,7 +10,7 @@ async function getAttempts(req, res) {
       ],
     });
     if (!attempt) {
-      res.status(404).json({ message: "Attempts Not Found" });
+      res.status(200).json({ message: "Attempts Not Found" });
     } else {
       res.status(200).json(attempt);
     }
