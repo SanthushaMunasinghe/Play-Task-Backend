@@ -47,6 +47,7 @@ const getSubjectTopics = require("./api/Topic/get-subject-topics");
 const createSubTopic = require("./api/Subtopic/create-subtopic");
 const getSubtopics = require("./api/Subtopic/get-subtopics");
 const updateSubtopic = require("./api/Subtopic/update-subtopic");
+const getSubtopic = require("./api/Subtopic/get-subtopic");
 
 //Admin
 const createAdmin = require("./api/Admin/create-admin");
@@ -168,6 +169,7 @@ app.get("/api/getsubjecttopics/:subject", getSubjectTopics);
 app.post("/api/subtopics", createSubTopic);
 //Get
 app.get("/api/getsubtopics/:topic", getSubtopics);
+app.get("/api/getsubtopic/:subtopicid", getSubtopic);
 //Update
 app.put("/api/updatesubtopic/:topic/:id", updateSubtopic);
 
@@ -213,4 +215,4 @@ app.put("/api/submitgame/:id", submitGame);
 
 //Attempt
 app.post("/api/createattempt", createAttempt);
-app.get("/api/getattempts/:student/:subtopic", getAttempt);
+app.get("/api/getattempts/:student", getAttempt);

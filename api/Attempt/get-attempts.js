@@ -2,12 +2,8 @@ const Attempt = require("../../models/Attempt");
 
 async function getAttempts(req, res) {
   try {
-    const attempt = await Attempt.findOne({
-      $and: [
-        { student: req.params.student },
-        { subtopic: req.params.subtopic },
-        { number: 0 },
-      ],
+    const attempt = await Attempt.find({
+      $and: [{ student: req.params.student }, { number: 0 }],
     });
     if (!attempt) {
       res.status(200).json({ message: "Attempts Not Found" });
